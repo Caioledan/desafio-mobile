@@ -5,6 +5,8 @@
 
 - Este desafio visa avaliar suas habilidades com React Native, organização de código, boas práticas e atenção a detalhes. O backend pode ser fake (simulado), mas é um diferencial implementar um backend real com Java + Spring Boot.
 
+- Desafio: Início 04/08 até dia 18/08/2025.
+
 # 👥 Perfis e Funcionalidades:
 👦 Aluno
  - Fazer login (simulado)
