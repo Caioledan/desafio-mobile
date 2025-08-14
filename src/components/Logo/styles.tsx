@@ -8,11 +8,4 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     gap: 16,
   },
-  logo: {
-    height: 144,
-    width: 163,
-  },
-  text: {
-    fontSize: 36,
-  },
 });

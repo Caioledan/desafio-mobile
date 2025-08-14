@@ -3,8 +3,9 @@ export type funcionalidade = 'Aluno' | 'Professor' | 'Diretor';
 
 export interface AuthContextData {
   user: User | null;
-  login: (matricula: string, senha: string) => boolean;
+  login: (matricula: string, senha: string) => Promise<boolean>;
   loading: boolean;
+  logout: () => Promise<void>;
 }
 
 export interface User {
@@ -13,4 +14,5 @@ export interface User {
   matricula: string;
   senha: string;
   funcionalidade: funcionalidade;
+  turmaId?: number;
 }

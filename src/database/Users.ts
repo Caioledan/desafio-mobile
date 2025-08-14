@@ -21,6 +21,7 @@ export const mockUsers: User[] = [
     matricula: "123",
     senha: "123",
     funcionalidade: "Aluno",
+    turmaId: 1,
   },
   {
     id: 4,
@@ -28,6 +29,7 @@ export const mockUsers: User[] = [
     matricula: "20101",
     senha: "123",
     funcionalidade: "Aluno",
+    turmaId: 1,
   },
   {
     id: 5,
@@ -35,6 +37,7 @@ export const mockUsers: User[] = [
     matricula: "20102",
     senha: "123",
     funcionalidade: "Aluno",
+    turmaId: 1,
   },
   {
     id: 6,
@@ -42,6 +45,7 @@ export const mockUsers: User[] = [
     matricula: "20103",
     senha: "123",
     funcionalidade: "Aluno",
+    turmaId: 1,
   },
   {
     id: 7,
@@ -49,6 +53,7 @@ export const mockUsers: User[] = [
     matricula: "20104",
     senha: "123",
     funcionalidade: "Aluno",
+    turmaId: 2,
   },
   {
     id: 8,
@@ -56,5 +61,6 @@ export const mockUsers: User[] = [
     matricula: "20105",
     senha: "123",
     funcionalidade: "Aluno",
+    turmaId: 2,
   },
 ];

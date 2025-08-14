@@ -6,11 +6,9 @@ import { Routes } from './src/routes';
 
 export default function App() {
   return (
-    <View style={styles.container}>
       <AuthProvider>
         <Routes/>
       </AuthProvider>
-    </View>
   );
 }
 

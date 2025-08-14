@@ -27,11 +27,11 @@ export function Login() {
   }
 
   return (
-    <>
-        <Logo/>
+    <View style={styles.container}>
+        <Logo height={144} width={163} fontSize={36}/>
         <LoginInputs matriculaValue={matricula} onMatriculaChange={setMatricula} senhaValue={senha} onSenhaChange={setSenha}/>
         <LoginButton onPress={handleLogin}/>
         <LoginText/>
-    </>
+    </View>
   );
 }

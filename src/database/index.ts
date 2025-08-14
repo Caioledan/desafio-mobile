@@ -1,18 +1,16 @@
 import { User } from "../interfaces/auth.interface";
+import { Turma } from "../interfaces/escola.interface";
+import { mockTurmas } from "./Turmas";
 import { mockUsers } from "./Users";
 
-export function getUserByCredentials(matricula:string, senha: string): User | null {
-    console.log('Verificando credenciais na lista de usuários mockados');
+export function getUserByCredentials(matricula:string, senha: string): User | undefined {
+    return mockUsers.find(user => user.matricula === matricula && user.senha === senha);
+}
 
-    const foundUser = mockUsers.find(
-        (user) => user.matricula === matricula && user.senha === senha
-    )
+export function getTurmaByID(id: number): Turma | undefined {
+    return mockTurmas.find(turma => turma.id === id);
+}
 
-    if (foundUser){
-        console.log(`Credenciais corretas. Usuário encontrado: ${foundUser.nome}`);
-        return foundUser;
-    }
-
-    console.log('Credenciais incorretas ou usuário não encontrado.');
-    return null
+export function getProfessorById(id: number): User | undefined {
+    return mockUsers.find(professor => professor.id === id);
 }
