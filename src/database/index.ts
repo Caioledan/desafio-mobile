@@ -24,3 +24,15 @@ export function getDisciplinaById(id: number): Disciplina | undefined {
 export function getNotaByAlunoDisciplina(alunoId: number, disciplinaId: number){
     return mockNotas.find(nota => nota.alunoId === alunoId && nota.disciplinaId === disciplinaId);
 }
+
+export function getTurmasByProfessorId(professorId: number){
+const professorDisciplinaIds = mockDisciplinas.filter(disciplina => disciplina.professorId === professorId).map(disciplina => disciplina.id);
+
+  if (professorDisciplinaIds.length === 0) {
+    return [];
+  }
+  
+  return mockTurmas.filter(turma =>
+    turma.disciplinasIds.some(disciplinaId => professorDisciplinaIds.includes(disciplinaId))
+  );
+}
