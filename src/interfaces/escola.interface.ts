@@ -2,6 +2,7 @@
 export interface Disciplina {
   id: number;
   nome: string;
+  professorId: number;
 }
 
 export interface Nota {

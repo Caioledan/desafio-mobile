@@ -19,7 +19,7 @@ interface UseNotasReturn {
   user: User | null;
 }
 
-export function useNotas(disciplinaId: number): UseNotasReturn {
+export function useNotas(disciplinaId: number | undefined): UseNotasReturn {
   const { user }: { user: User | null } = useContext(AuthContext);
   const [isLoading, setIsLoading] = useState(true);
   const [disciplina, setDisciplina] = useState('');
@@ -28,6 +28,11 @@ export function useNotas(disciplinaId: number): UseNotasReturn {
   const [notas, setNotas] = useState<NotasData | null>(null);
 
   useEffect(() => {
+    if (disciplinaId === undefined){
+      setIsLoading(false);
+      return;
+    }
+
     const fetchNotasData = () => {
       if (user && user.funcionalidade === "Aluno" && user.turmaId) {
         setAluno(user.nome);
@@ -35,15 +40,17 @@ export function useNotas(disciplinaId: number): UseNotasReturn {
         const disciplinaInfo = getDisciplinaById(disciplinaId);
         if (disciplinaInfo) setDisciplina(disciplinaInfo.nome);
 
-        const turmaInfo = getTurmaByID(user.turmaId);
-        if (turmaInfo) {
-          const professorInfo = getProfessorById(turmaInfo.professorId);
-          if (professorInfo) setProfessor(professorInfo.nome);
+        if (disciplinaInfo?.professorId !== undefined){
+          const professorInfo = getProfessorById(disciplinaInfo?.professorId)
+          if (professorInfo) {
+            setProfessor(professorInfo.nome)
+          }
         }
+
 
         const notaInfo = getNotaByAlunoDisciplina(user.id, disciplinaId);
         if (notaInfo) {
-          const totalNota = notaInfo.parcial + notaInfo.bimestral;
+          const totalNota = (notaInfo.parcial + notaInfo.bimestral)/2;
           const situacaoFinal = totalNota >= 7 ? "Aprovado" : "Recuperação";
           setNotas({
             parcial: notaInfo.parcial,

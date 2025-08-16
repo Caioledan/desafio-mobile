@@ -63,4 +63,11 @@ export const mockUsers: User[] = [
     funcionalidade: "Aluno",
     turmaId: 2,
   },
+  {
+    id: 9,
+    nome: "Luís Sierra",
+    matricula: "20001",
+    senha: "123",
+    funcionalidade: "Professor",
+  }
 ];
