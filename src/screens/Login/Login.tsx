@@ -3,9 +3,9 @@ import { Alert, Text, View } from 'react-native';
 
 import { styles } from './styles';
 import { Logo } from '../../components/Logo/Logo';
-import { LoginInputs } from '../../components/LoginInputs/LoginInputs';
-import { LoginButton } from '../../components/LoginButton/LoginButton';
-import { LoginText } from '../../components/LoginText/LogintText';
+import { LoginInputs } from '../../components/Login/LoginInputs/LoginInputs';
+import { LoginButton } from '../../components/Login/LoginButton/LoginButton';
+import { LoginText } from '../../components/Login/LoginText/LogintText';
 import { useAuth } from '../../hooks/useAuth';
 
 export function Login() {

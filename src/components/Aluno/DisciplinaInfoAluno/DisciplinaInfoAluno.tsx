@@ -9,7 +9,7 @@ interface DisciplinaInfoProps {
 }
 
 
-export function DisciplinaInfo({ disciplina, professor, aluno }: DisciplinaInfoProps ) {
+export function DisciplinaInfoAluno({ disciplina, professor, aluno }: DisciplinaInfoProps ) {
   return (
     <View style={styles.container}>
         <View style={styles.info}>

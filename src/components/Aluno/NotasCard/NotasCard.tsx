@@ -1,11 +1,11 @@
 import React from "react";
 import { Image, Text, View } from "react-native";
 import { styles } from "./styles";
-import Matricula from "../../assets/NotasCard/Matricula.png"
-import Parcial from "../../assets/NotasCard/Parcial.png"
-import Bimestral from "../../assets/NotasCard/Bimestral.png"
-import Total from "../../assets/NotasCard/Total.png"
-import Situacao from "../../assets/NotasCard/Situacao.png"
+import Matricula from "../../../assets/NotasCard/Matricula.png"
+import Parcial from "../../../assets/NotasCard/Parcial.png"
+import Bimestral from "../../../assets/NotasCard/Bimestral.png"
+import Total from "../../../assets/NotasCard/Total.png"
+import Situacao from "../../../assets/NotasCard/Situacao.png"
 
 interface NotasCardProps {
   matricula: string;

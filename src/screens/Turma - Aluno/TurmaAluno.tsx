@@ -2,9 +2,10 @@ import React from "react";
 import { Button, View, ScrollView } from "react-native";
 import { styles } from "./styles";
 import { Logo } from "../../components/Logo/Logo";
-import { TurmaInfoAluno } from "../../components/TurmaInfoAluno/TurmaInfoAluno";
+import { TurmaInfoAluno } from "../../components/Aluno/TurmaInfoAluno/TurmaInfoAluno";
 import { useAuth } from "../../hooks/useAuth";
-import { Disciplinas } from "../../components/Disciplinas/Disciplinas";
+import { DisciplinasAluno } from "../../components/Aluno/DisciplinasAluno/DisciplinasAluno";
+
 
 export function TurmaAluno() {
   const { logout } = useAuth();
@@ -21,7 +22,7 @@ export function TurmaAluno() {
     >
       <Logo height={105} width={93} fontSize={20} />
       <TurmaInfoAluno />
-      <Disciplinas />
+      <DisciplinasAluno />
       <Button title="LOGOUT" onPress={handleLogout} />
     </ScrollView>
   );

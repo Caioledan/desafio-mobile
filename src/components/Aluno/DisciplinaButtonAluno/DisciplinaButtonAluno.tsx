@@ -3,13 +3,13 @@ import { Image, ImageSourcePropType, Text, TouchableOpacity, View } from 'react-
 
 import { styles } from './styles';
 
-interface DisciplinaButtonProps {
+interface DisciplinaButtonAlunoProps {
     img: ImageSourcePropType;
     disciplina: string;
     onPress?: () => void;
 }
 
-export function DisciplinaButton({img, disciplina, onPress}: DisciplinaButtonProps) {
+export function DisciplinaButtonAluno({img, disciplina, onPress}: DisciplinaButtonAlunoProps) {
   return (
     <View style={styles.container}>
         <TouchableOpacity onPress={onPress} style={styles.button}>
