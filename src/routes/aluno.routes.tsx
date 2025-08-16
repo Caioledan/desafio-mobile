@@ -3,14 +3,14 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { TurmaAluno } from "../screens/Turma - Aluno/TurmaAluno";
 import { NotasAluno } from "../screens/Notas - Aluno/NotasAluno";
 
-export type AppStackParamList = {
-  Disciplinas: undefined;
+export type AlunoStackParamList = {
+  Turma: undefined;
   Notas: { disciplinaId: number };
 };
 
-const { Navigator, Screen } = createStackNavigator();
+const { Navigator, Screen } = createStackNavigator<AlunoStackParamList>();
 
-export function AppRoutes(){
+export function AlunoRoutes(){
     return (
         <Navigator screenOptions={{headerShown: false}}>
             <Screen name="Turma" component={TurmaAluno}/>

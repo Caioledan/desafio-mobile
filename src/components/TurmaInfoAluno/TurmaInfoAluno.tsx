@@ -1,22 +1,22 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+import React from "react";
+import { Text, View } from "react-native";
 
-import { styles } from './styles';
-import { useAuth } from '../../hooks/useAuth';
-import { getProfessorById, getTurmaByID } from '../../database';
+import { styles } from "./styles";
+import { useAuth } from "../../hooks/useAuth";
+import { getProfessorById, getTurmaByID } from "../../database";
 
-export function TurmaInfo() {
-  const {user} = useAuth();
+export function TurmaInfoAluno() {
+  const { user } = useAuth();
 
-  if (!user || !user.turmaId){
+  if (!user || !user.turmaId) {
     return null;
   }
 
-  const turma = getTurmaByID(user.turmaId)
+  const turma = getTurmaByID(user.turmaId);
   const professor = turma ? getProfessorById(turma.professorId) : undefined;
 
-  if (!turma){
-    return <Text>Turma não encontrada</Text>
+  if (!turma) {
+    return <Text>Turma não encontrada</Text>;
   }
 
   return (
@@ -29,8 +29,6 @@ export function TurmaInfo() {
         <Text style={styles.responsavel}>Professor(a) responsável:</Text>
         <Text style={styles.professor}>{professor?.nome}</Text>
       </View>
-
     </View>
-  )
-
+  );
 }
