@@ -1,4 +1,3 @@
-import { User } from "./auth.interface";
 
 export interface Disciplina {
   id: number;
@@ -8,7 +7,8 @@ export interface Disciplina {
 export interface Nota {
   alunoId: number;
   disciplinaId: number;
-  valor: number;
+  parcial: number;
+  bimestral: number;
 }
 
 export interface Turma {

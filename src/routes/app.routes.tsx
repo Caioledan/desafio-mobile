@@ -1,17 +1,20 @@
 import React from "react";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createStackNavigator } from "@react-navigation/stack";
 import { TurmaAluno } from "../screens/Turma - Aluno/TurmaAluno";
-import MaterialIcons from "react-native-vector-icons/MaterialIcons"
+import { NotasAluno } from "../screens/Notas - Aluno/NotasAluno";
 
-const { Navigator, Screen } = createBottomTabNavigator();
+export type AppStackParamList = {
+  Disciplinas: undefined;
+  Notas: { disciplinaId: number };
+};
+
+const { Navigator, Screen } = createStackNavigator();
 
 export function AppRoutes(){
     return (
-        <Navigator>
-            <Screen name="Turma" component={TurmaAluno} options={{
-                tabBarIcon: () => (<MaterialIcons name="groups" size={30}/> ),
-                headerShown: false,
-            }}/>
+        <Navigator screenOptions={{headerShown: false}}>
+            <Screen name="Turma" component={TurmaAluno}/>
+            <Screen name="Notas" component={NotasAluno}/>
         </Navigator>
     )
 }

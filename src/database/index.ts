@@ -1,5 +1,7 @@
 import { User } from "../interfaces/auth.interface";
-import { Turma } from "../interfaces/escola.interface";
+import { Disciplina, Turma } from "../interfaces/escola.interface";
+import { mockDisciplinas } from "./Disciplinas";
+import { mockNotas } from "./Notas";
 import { mockTurmas } from "./Turmas";
 import { mockUsers } from "./Users";
 
@@ -13,4 +15,12 @@ export function getTurmaByID(id: number): Turma | undefined {
 
 export function getProfessorById(id: number): User | undefined {
     return mockUsers.find(professor => professor.id === id);
+}
+
+export function getDisciplinaById(id: number): Disciplina | undefined {
+    return mockDisciplinas.find(disciplina => disciplina.id === id);
+}
+
+export function getNotaByAlunoDisciplina(alunoId: number, disciplinaId: number){
+    return mockNotas.find(nota => nota.alunoId === alunoId && nota.disciplinaId === disciplinaId);
 }
