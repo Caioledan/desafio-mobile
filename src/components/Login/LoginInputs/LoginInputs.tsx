@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, Text, TextInput, View } from 'react-native';
-import Locker from "../../assets/images/padlock.png";
-import User from "../../assets/images/user.png"
+import Locker from "../../../assets/images/padlock.png";
+import User from "../../../assets/images/user.png"
 import { styles } from './styles';
 
 interface LoginInputsProps {

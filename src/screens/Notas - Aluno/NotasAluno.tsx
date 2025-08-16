@@ -2,13 +2,13 @@ import React from "react";
 import { ActivityIndicator, View, Text } from "react-native";
 import { styles } from "./styles";
 import { Logo } from "../../components/Logo/Logo";
-import { DisciplinaInfo } from "../../components/DisciplinaInfo/DisciplinaInfo";
-import { NotasCard } from "../../components/NotasCard/NotasCard";
+import { DisciplinaInfoAluno } from "../../components/Aluno/DisciplinaInfoAluno/DisciplinaInfoAluno";
+import { NotasCard } from "../../components/Aluno/NotasCard/NotasCard";
 import { RouteProp, useRoute } from "@react-navigation/native";
 import { useNotas } from "../../hooks/useNotas";
-import { AppStackParamList } from "../../routes/aluno.routes";
+import { AlunoStackParamList } from "../../routes/aluno.routes";
 
-type NotasAlunoRouteProp = RouteProp<AppStackParamList, "Notas">;
+type NotasAlunoRouteProp = RouteProp<AlunoStackParamList, "Notas">;
 
 export function NotasAluno() {
   const route = useRoute<NotasAlunoRouteProp>();
@@ -27,7 +27,7 @@ export function NotasAluno() {
   return (
     <View style={styles.container}>
       <Logo width={105} height={93} fontSize={20} />
-      <DisciplinaInfo
+      <DisciplinaInfoAluno
         disciplina={disciplina}
         professor={professor}
         aluno={aluno}
