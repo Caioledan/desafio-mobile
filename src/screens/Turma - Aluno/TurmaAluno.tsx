@@ -14,7 +14,7 @@ export function TurmaAluno() {
   }
 
   return (
-    <ScrollView contentContainerStyle={styles.contentContainer} style={styles.container}>
+    <ScrollView contentContainerStyle={styles.contentContainer} style={styles.container} showsVerticalScrollIndicator={false}>
       <Logo height={105} width={93} fontSize={20}/>
       <TurmaInfo/>
       <Disciplinas/>
