@@ -17,7 +17,7 @@ export function TurmasDoProfessor() {
   const { turmas } = useProfessorTurmas();
 
   const handleTurmaButton = (turmaId: number) => {
-    navigation.navigate("TurmaProfessor", { turmaId: turmaId });
+    navigation.navigate("TurmaDetalhesProfessor", { turmaId: turmaId });
   };
 
   return (

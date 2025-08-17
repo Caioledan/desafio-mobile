@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View } from "react-native";
 import { styles } from "./styles";
-import { getProfessorById } from "../../../database";
+import { getUserById } from "../../../database";
 import { Turma } from "../../../interfaces/escola.interface";
 
 interface TurmaInfoCardProps {
@@ -13,7 +13,7 @@ export function TurmaInfoProfessor({ turma }: TurmaInfoCardProps) {
     return null;
   }
 
-  const professorResponsavel = getProfessorById(turma.professorId);
+  const professorResponsavel = getUserById(turma.professorId);
 
   return (
     <View style={styles.container}>

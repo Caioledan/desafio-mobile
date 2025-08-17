@@ -11,11 +11,11 @@ interface DisciplinaButtonAlunoProps {
 
 export function DisciplinaButtonAluno({img, disciplina, onPress}: DisciplinaButtonAlunoProps) {
   return (
-    <View style={styles.container}>
-        <TouchableOpacity onPress={onPress} style={styles.button}>
-            <Image source={img}/>
-            <Text style={styles.text}>{disciplina}</Text>
-        </TouchableOpacity>
-    </View>
+    <TouchableOpacity onPress={onPress} style={styles.container}>
+      <View  style={styles.button}>
+        <Image source={img}/>
+        <Text style={styles.text}>{disciplina}</Text>
+      </View>
+    </TouchableOpacity>
   );
 }

@@ -13,7 +13,7 @@ export function getTurmaByID(id: number): Turma | undefined {
     return mockTurmas.find(turma => turma.id === id);
 }
 
-export function getProfessorById(id: number): User | undefined {
+export function getUserById(id: number): User | undefined {
     return mockUsers.find(professor => professor.id === id);
 }
 

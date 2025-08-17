@@ -9,10 +9,10 @@ interface LoginButtonProps {
 
 export function LoginButton({onPress}: LoginButtonProps) {
   return (
-    <View style={styles.container}>
-        <TouchableOpacity style={styles.button} onPress={onPress}>
-            <Text style={styles.text}>Entrar</Text>
-        </TouchableOpacity>
-    </View>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
+      <View style={styles.button}>
+        <Text style={styles.text}>Entrar</Text>
+      </View>
+    </TouchableOpacity>
   );
 }
