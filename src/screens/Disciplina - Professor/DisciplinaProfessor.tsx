@@ -2,7 +2,6 @@ import React, { useEffect, useMemo, useState } from "react";
 import { View } from "react-native";
 import { styles } from "./styles";
 import { Logo } from "../../components/Logo/Logo";
-import { DisciplinaInfoProfessor } from "../../components/Professor/DisciplinaInfoProfessor/DisciplinaInfoProfessor";
 import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
 import { ProfessorStackParamList } from "../../routes/professor.routes";
 import { Disciplina, Turma } from "../../interfaces/escola.interface";
@@ -11,6 +10,7 @@ import { DisciplinaAlunos } from "../../components/Professor/DisciplinaAlunos/Di
 import { User } from "../../interfaces/auth.interface";
 import { useAuth } from "../../hooks/useAuth";
 import { StackNavigationProp } from "@react-navigation/stack";
+import { DisciplinaInfoCard } from "../../components/DisciplinaInfoCard/DisciplinaInfoCard";
 
 type DisciplinaProfessorRouteProp = RouteProp<
   ProfessorStackParamList,
@@ -50,8 +50,8 @@ export function DisciplinaProfessor() {
   return (
     <View style={styles.container}>
       <Logo height={105} width={93} fontSize={20} />
-      <DisciplinaInfoProfessor
-        disciplinaNome={disciplina?.nome ?? "Disciplina não encontrada"}
+      <DisciplinaInfoCard 
+        disciplina={disciplina?.nome ?? "Disciplina não encontrada"}
       />
       <DisciplinaAlunos alunos={alunosDaTurma} onPress={handleALunoPress} />
     </View>

@@ -4,7 +4,7 @@ import { styles } from './styles';
 
 interface InfoCardProps {
   disciplina: string;
-  aluno: string;
+  aluno?: string;
   professor?: string;
 }
 
@@ -22,11 +22,13 @@ export function DisciplinaInfoCard({ disciplina, professor, aluno }: InfoCardPro
           <Text style={styles.text}>{professor}</Text>
         </View>
       )}
+      {aluno && (
+        <View style={styles.info}>
+          <Text style={styles.title}>Aluno:</Text>
+          <Text style={styles.text}>{aluno}</Text>
+        </View>
+      )}
 
-      <View style={styles.info}>
-        <Text style={styles.title}>Aluno:</Text>
-        <Text style={styles.text}>{aluno}</Text>
-      </View>
     </View>
   );
 }

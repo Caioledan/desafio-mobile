@@ -12,7 +12,7 @@ interface AlunosTurmaProps {
 export function DisciplinaAlunos({alunos, onPress}: AlunosTurmaProps) {
   return (
     <View style={styles.container}>
-        <Text style={{ fontSize: 24, fontWeight: "medium",}}>Alunos da Turma</Text>
+        <Text style={{ fontSize: 24, fontWeight: "medium", marginTop: 30}}>Alunos da Turma</Text>
         <View style={styles.grid}>
             {alunos.map((aluno) => (
                 <View style={styles.wrapper} key={aluno.id}>
