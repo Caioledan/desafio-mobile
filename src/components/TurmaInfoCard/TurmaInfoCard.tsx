@@ -1,23 +1,19 @@
 import React from "react";
 import { Text, View } from "react-native";
-
+import { getUserById } from "../../database";
+import { Turma } from "../../interfaces/escola.interface";
 import { styles } from "./styles";
-import { useAuth } from "../../../hooks/useAuth";
-import { getUserById, getTurmaByID } from "../../../database";
 
-export function TurmaInfoAluno() {
-  const { user } = useAuth();
+interface TurmaInfoCardProps {
+  turma: Turma | undefined;
+}
 
-  if (!user || !user.turmaId) {
+export function TurmaInfoCard({ turma }: TurmaInfoCardProps) {
+  if (!turma) {
     return null;
   }
 
-  const turma = getTurmaByID(user.turmaId);
-  const professor = turma ? getUserById(turma.professorId) : undefined;
-
-  if (!turma) {
-    return <Text>Turma não encontrada</Text>;
-  }
+  const professorResponsavel = getUserById(turma.professorId);
 
   return (
     <View style={styles.container}>
@@ -27,7 +23,9 @@ export function TurmaInfoAluno() {
       </View>
       <View style={styles.professorContainer}>
         <Text style={styles.responsavel}>Professor(a) responsável:</Text>
-        <Text style={styles.professor}>{professor?.nome}</Text>
+        <Text style={styles.professor}>
+          {professorResponsavel?.nome || "Não definido"}
+        </Text>
       </View>
     </View>
   );

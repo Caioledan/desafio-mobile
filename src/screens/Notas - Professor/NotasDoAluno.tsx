@@ -2,14 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { Alert, Text, TouchableOpacity, View } from 'react-native';
 import { styles } from './styles';
 import { Logo } from '../../components/Logo/Logo';
-import { DisciplinaInfoCard } from '../../components/Professor/DisciplinaInfoCard/DisciplinaInfoCard';
 import { RouteProp, useRoute } from '@react-navigation/native';
 import { ProfessorStackParamList } from '../../routes/professor.routes';
 import { Disciplina } from '../../interfaces/escola.interface';
 import { User } from '../../interfaces/auth.interface';
 import { getDisciplinaById, getNotaByAlunoDisciplina, getUserById, salvarNota } from '../../database';
-import { AlunoNotasCard } from '../../components/Professor/AlunoNotasCard/AlunoNotasCard';
-import { Button } from 'react-native';
+import { NotasCard } from '../../components/NotasCard/NotasCard';
+import { DisciplinaInfoCard } from '../../components/DisciplinaInfoCard/DisciplinaInfoCard';
 
 type NotasDoAlunoProps = RouteProp<ProfessorStackParamList, "NotasDoAluno">
 
@@ -53,9 +52,9 @@ export function NotasDoAluno() {
   return (
     <View style={styles.container}>
       <Logo height={105} width={93} fontSize={20} />
-      <DisciplinaInfoCard disciplinaNome={disciplina?.nome ?? "Não encontrada"} alunoNome={aluno?.nome || ""}/>
+      <DisciplinaInfoCard disciplina={disciplina?.nome || ""} aluno={aluno?.nome || ""}/>
       {aluno && (
-        <AlunoNotasCard 
+        <NotasCard 
           matricula={aluno.matricula}
           parcial={parcial}
           bimestral={bimestral}

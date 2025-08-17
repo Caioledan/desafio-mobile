@@ -2,11 +2,11 @@ import React from "react";
 import { ActivityIndicator, View, Text } from "react-native";
 import { styles } from "./styles";
 import { Logo } from "../../components/Logo/Logo";
-import { DisciplinaInfoAluno } from "../../components/Aluno/DisciplinaInfoAluno/DisciplinaInfoAluno";
-import { NotasCard } from "../../components/Aluno/NotasCard/NotasCard";
+import { DisciplinaInfoCard } from "../../components/DisciplinaInfoCard/DisciplinaInfoCard"
 import { RouteProp, useRoute } from "@react-navigation/native";
 import { useNotas } from "../../hooks/useNotas";
 import { AlunoStackParamList } from "../../routes/aluno.routes";
+import { NotasCard } from "../../components/NotasCard/NotasCard";
 
 type NotasAlunoRouteProp = RouteProp<AlunoStackParamList, "Notas">;
 
@@ -27,16 +27,17 @@ export function NotasAluno() {
   return (
     <View style={styles.container}>
       <Logo width={105} height={93} fontSize={20} />
-      <DisciplinaInfoAluno
+      <DisciplinaInfoCard
         disciplina={disciplina}
         professor={professor}
         aluno={aluno}
       />
       {user && notas ? (
-        <NotasCard
+        <NotasCard 
           matricula={user.matricula}
-          parcial={notas.parcial}
-          bimestral={notas.bimestral}
+          parcial={notas.parcial?.toString() ?? ""}
+          bimestral={notas.bimestral?.toString() ?? ""}
+          isEditing={false}
         />
       ) : (
         <Text style={{ marginTop: 80 }}>Nenhuma nota encontrada.</Text>

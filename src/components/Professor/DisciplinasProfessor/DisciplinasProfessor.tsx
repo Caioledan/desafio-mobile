@@ -2,7 +2,7 @@ import React from "react";
 import { ImageSourcePropType, Text, View } from "react-native";
 import { styles } from "./styles";
 import { Disciplina } from "../../../interfaces/escola.interface";
-import { DisciplinaButtonProfessor } from "../DisciplinaButtonProfessor/DisciplinaButtonProfessor";
+import { DisciplinaButton } from "../../DisciplinaButton/DisciplinaButton";
 
 const disciplinaImages: { [key: string]: ImageSourcePropType } = {
   Matemática: require("../../../assets/DisciplinaButtons/Matemática.png"),
@@ -31,7 +31,7 @@ export function DisciplinasProfessor({
       <View style={styles.grid}>
         {disciplinas.map((disciplina) => (
           <View key={disciplina.id}>
-            <DisciplinaButtonProfessor img={disciplinaImages[disciplina.nome]} disciplina={disciplina.nome} onPress={() => onPress(disciplina.id)}/>
+            <DisciplinaButton img={disciplinaImages[disciplina.nome]} disciplina={disciplina.nome} onPress={() => onPress(disciplina.id)}/>
           </View>
         ))}
       </View>

@@ -4,7 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { AlunoStackParamList } from "../../../routes/aluno.routes";
 import { useDisciplinas } from "../../../hooks/useDisciplinas";
-import { DisciplinaButtonAluno } from "../DisciplinaButtonAluno/DisciplinaButtonAluno";
+import { DisciplinaButton } from "../../DisciplinaButton/DisciplinaButton";
 
 
 const disciplinaImages: { [key: string]: ImageSourcePropType } = {
@@ -36,7 +36,7 @@ export function DisciplinasAluno() {
       <View style={styles.grid}>
         {disciplinasDaTurma.map((disciplina) => (
           <View style={styles.wrapper} key={disciplina.id}>
-            <DisciplinaButtonAluno
+            <DisciplinaButton
               img={disciplinaImages[disciplina.nome]}
               disciplina={disciplina.nome}
               onPress={() => handleNavigationToNotas(disciplina.id)}

@@ -20,7 +20,7 @@ container: {
     fontWeight: "500",
     margin: 0,
   },
-  NotasContainer: {
+  notasContainer: {
     padding: 30,
     gap: 20,
     justifyContent: "space-around"

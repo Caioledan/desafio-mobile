@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { View } from "react-native";
 import { styles } from "./styles";
 import { Logo } from "../../components/Logo/Logo";
-import { TurmaInfoProfessor } from "../../components/Professor/TurmaInfoProfessor/TurmaInfoProfessor";
+import { TurmaInfoCard } from "../../components/TurmaInfoCard/TurmaInfoCard";
 import { ProfessorStackParamList } from "../../routes/professor.routes";
 import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
 import { Disciplina, Turma } from "../../interfaces/escola.interface";
@@ -12,9 +12,14 @@ import { useAuth } from "../../hooks/useAuth";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { ScrollView } from "react-native-gesture-handler";
 
-type TurmaDetalhesProfessorRouteProp = RouteProp<ProfessorStackParamList, "TurmaDetalhesProfessor">
-type NavigationProp = StackNavigationProp<ProfessorStackParamList, "TurmaDetalhesProfessor">
-
+type TurmaDetalhesProfessorRouteProp = RouteProp<
+  ProfessorStackParamList,
+  "TurmaDetalhesProfessor"
+>;
+type NavigationProp = StackNavigationProp<
+  ProfessorStackParamList,
+  "TurmaDetalhesProfessor"
+>;
 
 export function TurmaDetalhesProfessor() {
   const navigation = useNavigation<NavigationProp>();
@@ -40,14 +45,23 @@ export function TurmaDetalhesProfessor() {
   }, [turma, user]);
 
   const handleDisciplinaButton = (disciplinaId: number) => {
-    navigation.navigate("DisciplinaProfessor", {turmaId: turmaId, disciplinaId: disciplinaId})
-  }
+    navigation.navigate("DisciplinaProfessor", {
+      turmaId: turmaId,
+      disciplinaId: disciplinaId,
+    });
+  };
 
   return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+    <ScrollView
+      style={styles.container}
+      contentContainerStyle={styles.contentContainer}
+    >
       <Logo height={105} width={93} fontSize={20} />
-      <TurmaInfoProfessor turma={turma} />
-      <DisciplinasProfessor disciplinas={disciplinasDoProfessor} onPress={handleDisciplinaButton}/>
+      <TurmaInfoCard turma={turma} />
+      <DisciplinasProfessor
+        disciplinas={disciplinasDoProfessor}
+        onPress={handleDisciplinaButton}
+      />
     </ScrollView>
   );
 }

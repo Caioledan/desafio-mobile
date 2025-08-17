@@ -1,14 +1,19 @@
 import React from "react";
-import { Button, View, ScrollView } from "react-native";
+import { Button, ScrollView } from "react-native";
 import { styles } from "./styles";
 import { Logo } from "../../components/Logo/Logo";
-import { TurmaInfoAluno } from "../../components/Aluno/TurmaInfoAluno/TurmaInfoAluno";
 import { useAuth } from "../../hooks/useAuth";
+import { TurmaInfoCard } from "../../components/TurmaInfoCard/TurmaInfoCard";
+import { getTurmaByID } from "../../database";
 import { DisciplinasAluno } from "../../components/Aluno/DisciplinasAluno/DisciplinasAluno";
 
 
+
 export function TurmaAluno() {
+  const {user} = useAuth();
   const { logout } = useAuth();
+
+  const turma = user?.turmaId ? getTurmaByID(user.turmaId) : undefined;
 
   const handleLogout = async () => {
     await logout();
@@ -21,7 +26,7 @@ export function TurmaAluno() {
       showsVerticalScrollIndicator={false}
     >
       <Logo height={105} width={93} fontSize={20} />
-      <TurmaInfoAluno />
+      <TurmaInfoCard turma={turma}/>
       <DisciplinasAluno />
       <Button title="LOGOUT" onPress={handleLogout} />
     </ScrollView>
