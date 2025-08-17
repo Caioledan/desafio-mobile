@@ -5,7 +5,6 @@ export const mockNotas: Nota[] = [
     alunoId: 3,
     disciplinaId: 1,
     parcial: 9.2,
-    bimestral: 5,
   },
   {
     alunoId: 3,

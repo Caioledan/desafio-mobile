@@ -1,22 +1,25 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { ImageSourcePropType, View } from "react-native";
+import { View } from "react-native";
 import { styles } from "./styles";
 import { Logo } from "../../components/Logo/Logo";
 import { DisciplinaInfoProfessor } from "../../components/Professor/DisciplinaInfoProfessor/DisciplinaInfoProfessor";
-import { RouteProp, useRoute } from "@react-navigation/native";
+import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
 import { ProfessorStackParamList } from "../../routes/professor.routes";
 import { Disciplina, Turma } from "../../interfaces/escola.interface";
 import { getDisciplinaById, getTurmaByID, getUserById } from "../../database";
 import { DisciplinaAlunos } from "../../components/Professor/DisciplinaAlunos/DisciplinaAlunos";
 import { User } from "../../interfaces/auth.interface";
 import { useAuth } from "../../hooks/useAuth";
+import { StackNavigationProp } from "@react-navigation/stack";
 
 type DisciplinaProfessorRouteProp = RouteProp<
   ProfessorStackParamList,
   "DisciplinaProfessor"
 >;
+type NavigationProp = StackNavigationProp<ProfessorStackParamList, "DisciplinaProfessor">;
 
 export function DisciplinaProfessor() {
+  const navigation = useNavigation<NavigationProp>();
   const route = useRoute<DisciplinaProfessorRouteProp>();
   const { disciplinaId, turmaId } = route.params;
   const [disciplina, setDisciplina] = useState<Disciplina | undefined>();
@@ -39,7 +42,10 @@ export function DisciplinaProfessor() {
       .map((alunoId) => getUserById(alunoId))
       .filter((aluno): aluno is User => aluno !== undefined);
   }, [turma]);
-  const handleALunoPress = (alunoId: number) => {};
+
+  const handleALunoPress = (alunoId: number) => {
+    navigation.navigate("NotasDoAluno", {disciplinaId: disciplinaId, alunoId: alunoId})
+  };
 
   return (
     <View style={styles.container}>

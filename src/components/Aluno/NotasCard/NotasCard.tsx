@@ -9,13 +9,30 @@ import Situacao from "../../../assets/NotasCard/Situacao.png"
 
 interface NotasCardProps {
   matricula: string;
-  parcial: number;
-  bimestral: number;
-  total: number;
-  situacao: string;
+  parcial?: number;
+  bimestral?: number;
 }
 
-export function NotasCard({matricula,parcial,bimestral,total,situacao}:NotasCardProps) {
+export function NotasCard({matricula,parcial,bimestral}:NotasCardProps) {
+  let totalExibido: string = "--";
+  let situacao = "Cursando";
+  let estiloSituacao = styles.cursando;
+
+  if (parcial !== undefined && bimestral !== undefined){
+    const totalCalculado = (parcial + bimestral)/2;
+
+    totalExibido = totalCalculado.toFixed(1);
+
+    if(totalCalculado >= 7){
+      situacao = "Aprovado";
+      estiloSituacao = styles.aprovado;
+    }
+    else {
+      situacao = "Recuperação";
+      estiloSituacao = styles.recuperacao;
+    }
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.titleView}>
@@ -42,10 +59,10 @@ export function NotasCard({matricula,parcial,bimestral,total,situacao}:NotasCard
       </View>
       <View style={styles.NotasContainer}>
         <Text style={styles.titleText}>{matricula}</Text>
-        <Text style={styles.titleText}>{parcial}</Text>
-        <Text style={styles.titleText}>{bimestral}</Text>
-        <Text style={styles.titleText}>{total}</Text>
-        <Text style={[styles.titleText, situacao === 'Aprovado' ? styles.aprovado : styles.recuperacao]}>{situacao}</Text>
+        <Text style={styles.titleText}>{parcial?.toFixed(1) ?? '--'}</Text>
+        <Text style={styles.titleText}>{bimestral?.toFixed(1) ?? '--'}</Text>
+        <Text style={styles.titleText}>{totalExibido}</Text>
+        <Text style={[styles.titleText, {fontSize: 16}, estiloSituacao]}>{situacao}</Text>
       </View>
     </View>
   );

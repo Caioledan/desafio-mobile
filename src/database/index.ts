@@ -1,5 +1,5 @@
 import { User } from "../interfaces/auth.interface";
-import { Disciplina, Turma } from "../interfaces/escola.interface";
+import { Disciplina, Nota, Turma } from "../interfaces/escola.interface";
 import { mockDisciplinas } from "./Disciplinas";
 import { mockNotas } from "./Notas";
 import { mockTurmas } from "./Turmas";
@@ -35,4 +35,23 @@ const professorDisciplinaIds = mockDisciplinas.filter(disciplina => disciplina.p
   return mockTurmas.filter(turma =>
     turma.disciplinasIds.some(disciplinaId => professorDisciplinaIds.includes(disciplinaId))
   );
+}
+
+export function salvarNota( alunoId: number, disciplinaId: number, notaParcial: number, notaBimestral: number){
+  const notaExistente = mockNotas.find((nota) => nota.alunoId === alunoId && nota.disciplinaId === disciplinaId);
+
+  if (notaExistente) {
+    notaExistente.parcial = notaParcial;
+    notaExistente.bimestral = notaBimestral;
+  }
+  else {
+    const novaNota: Nota = {
+      alunoId: alunoId,
+      disciplinaId: disciplinaId,
+      parcial: notaParcial,
+      bimestral: notaBimestral,
+    };
+    
+    mockNotas.push(novaNota);
+  }
 }

@@ -37,8 +37,6 @@ export function NotasAluno() {
           matricula={user.matricula}
           parcial={notas.parcial}
           bimestral={notas.bimestral}
-          total={notas.total}
-          situacao={notas.situacao}
         />
       ) : (
         <Text style={{ marginTop: 80 }}>Nenhuma nota encontrada.</Text>

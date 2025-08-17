@@ -8,8 +8,8 @@ export interface Disciplina {
 export interface Nota {
   alunoId: number;
   disciplinaId: number;
-  parcial: number;
-  bimestral: number;
+  parcial?: number;
+  bimestral?: number;
 }
 
 export interface Turma {
