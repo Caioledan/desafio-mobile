@@ -3,7 +3,7 @@ import { Text, View } from "react-native";
 
 import { styles } from "./styles";
 import { useAuth } from "../../../hooks/useAuth";
-import { getProfessorById, getTurmaByID } from "../../../database";
+import { getUserById, getTurmaByID } from "../../../database";
 
 export function TurmaInfoAluno() {
   const { user } = useAuth();
@@ -13,7 +13,7 @@ export function TurmaInfoAluno() {
   }
 
   const turma = getTurmaByID(user.turmaId);
-  const professor = turma ? getProfessorById(turma.professorId) : undefined;
+  const professor = turma ? getUserById(turma.professorId) : undefined;
 
   if (!turma) {
     return <Text>Turma não encontrada</Text>;

@@ -19,18 +19,19 @@ const disciplinaImages: { [key: string]: ImageSourcePropType } = {
 
 interface DisciplinasProfessorProps {
   disciplinas: Disciplina[];
+  onPress: (disciplinaId: number) => void;
 }
 
 export function DisciplinasProfessor({
-  disciplinas,
+  disciplinas, onPress
 }: DisciplinasProfessorProps) {
   return (
     <View style={styles.container}>
-      <Text>Suas Disciplinas na Turma</Text>
-      <View>
+      <Text style={styles.text}>Suas Disciplinas na Turma</Text>
+      <View style={styles.grid}>
         {disciplinas.map((disciplina) => (
           <View key={disciplina.id}>
-            <DisciplinaButtonProfessor />
+            <DisciplinaButtonProfessor img={disciplinaImages[disciplina.nome]} disciplina={disciplina.nome} onPress={() => onPress(disciplina.id)}/>
           </View>
         ))}
       </View>

@@ -11,10 +11,10 @@ interface TurmasButtonProps {
 
 export function TurmasButton({ turmaSerie, turmaNome, onPress }: TurmasButtonProps) {
   return (
-    <View style={styles.container}>
-        <TouchableOpacity onPress={onPress} style={styles.button}>
-            <Text style={styles.text}>{turmaSerie} {turmaNome}</Text>
-        </TouchableOpacity>
-    </View>
+    <TouchableOpacity onPress={onPress} style={styles.container}>
+      <View style={styles.button}>
+        <Text style={styles.text}>{turmaSerie} {turmaNome}</Text>
+      </View>
+    </TouchableOpacity>
   );
 }

@@ -4,14 +4,15 @@ export const styles = StyleSheet.create({
   container: {
     display: "flex",
     alignItems: "center",
-    gap: 20,
-    padding: 20,
+    paddingVertical: 30,
+    gap:4,
+  },
+  title: {
+    fontWeight: "bold",
+    fontSize: 24,
   },
   text: {
-    fontSize: 24, 
-    fontWeight: "medium",
+    fontWeight: "500",
+    fontSize: 20,
   },
-  grid: {
-    gap: 20,
-  }
 });
