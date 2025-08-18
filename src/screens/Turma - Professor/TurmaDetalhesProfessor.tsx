@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { View } from "react-native";
 import { styles } from "./styles";
 import { Logo } from "../../components/Logo/Logo";
 import { TurmaInfoCard } from "../../components/TurmaInfoCard/TurmaInfoCard";
@@ -16,6 +15,7 @@ type TurmaDetalhesProfessorRouteProp = RouteProp<
   ProfessorStackParamList,
   "TurmaDetalhesProfessor"
 >;
+
 type NavigationProp = StackNavigationProp<
   ProfessorStackParamList,
   "TurmaDetalhesProfessor"
@@ -30,6 +30,7 @@ export function TurmaDetalhesProfessor() {
 
   useEffect(() => {
     const dadosDaTurma = getTurmaByID(turmaId);
+
     setTurma(dadosDaTurma);
   }, [turmaId]);
 
@@ -47,6 +48,7 @@ export function TurmaDetalhesProfessor() {
   const handleDisciplinaButton = (disciplinaId: number) => {
     navigation.navigate("DisciplinaProfessor", {
       turmaId: turmaId,
+
       disciplinaId: disciplinaId,
     });
   };
