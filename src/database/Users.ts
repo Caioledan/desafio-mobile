@@ -3,21 +3,21 @@ import { User } from "../interfaces/auth.interface";
 export const mockUsers: User[] = [
   {
     id: 1,
-    nome: "Caio",
+    nome: "Caio Lemos",
     matricula: "12345",
     senha: "12345",
     funcionalidade: "Diretor",
   },
   {
     id: 2,
-    nome: "Júlia",
+    nome: "Júlia Sampaio",
     matricula: "1234",
     senha: "1234",
     funcionalidade: "Professor",
   },
   {
     id: 3,
-    nome: "Mari",
+    nome: "Mariana Lemos",
     matricula: "123",
     senha: "123",
     funcionalidade: "Aluno",
@@ -69,5 +69,5 @@ export const mockUsers: User[] = [
     matricula: "20001",
     senha: "123",
     funcionalidade: "Professor",
-  }
+  },
 ];
