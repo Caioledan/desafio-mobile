@@ -1,17 +1,13 @@
-import React, {
-  createContext,
-  useState,
-  useContext,
-  ReactNode,
-  useEffect,
-} from "react";
+import React, { createContext, useState, ReactNode, useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AuthContextData, User } from "../interfaces/auth.interface";
 import { getUserByCredentials } from "../database";
 
-const USER_STORAGE_KEY = "@AppName:user"
+const USER_STORAGE_KEY = "@AppName:user";
 
-export const AuthContext = createContext<AuthContextData>({} as AuthContextData);
+export const AuthContext = createContext<AuthContextData>(
+  {} as AuthContextData
+);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
@@ -19,17 +15,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     async function loadUserFromStorage() {
-      try{
+      try {
         const storedUser = await AsyncStorage.getItem(USER_STORAGE_KEY);
 
-        if (storedUser){
+        if (storedUser) {
           setUser(JSON.parse(storedUser));
         }
-      }
-      catch (error){
+      } catch (error) {
         console.error("Falha no carregamento do usuário", error);
-      }
-      finally {
+      } finally {
         setLoading(false);
       }
     }
@@ -40,19 +34,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   async function login(matricula: string, senha: string): Promise<boolean> {
     const foundUser = getUserByCredentials(matricula, senha);
 
-    if (foundUser){
-        setUser(foundUser);
+    if (foundUser) {
+      setUser(foundUser);
 
-        await AsyncStorage.setItem(USER_STORAGE_KEY, JSON.stringify(foundUser));
-        return true;
+      await AsyncStorage.setItem(USER_STORAGE_KEY, JSON.stringify(foundUser));
+      return true;
     }
 
     return false;
   }
 
-  async function logout(): Promise<void>{
-      await AsyncStorage.removeItem(USER_STORAGE_KEY);
-      setUser(null);
+  async function logout(): Promise<void> {
+    await AsyncStorage.removeItem(USER_STORAGE_KEY);
+    setUser(null);
   }
 
   return (
@@ -61,4 +55,3 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     </AuthContext.Provider>
   );
 }
-

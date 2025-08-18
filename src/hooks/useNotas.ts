@@ -5,28 +5,11 @@ import {
   getDisciplinaById,
   getNotaByAlunoDisciplina,
   getUserById,
-  getTurmaByID,
 } from "../database";
-
-type NotasData = {
-  parcial: number;
-  bimestral: number;
-  total: number;
-  situacao: string;
-};
-
-interface UseNotasReturn {
-  isLoading: boolean;
-  disciplina: string;
-  professor: string;
-  aluno: string;
-  notas: NotasData | null;
-  user: User | null;
-}
+import { NotasData, UseNotasReturn } from "../interfaces/hooks.interface";
 
 export function useNotas(disciplinaId: number | undefined): UseNotasReturn {
   const { user }: { user: User | null } = useContext(AuthContext);
-  const [isLoading, setIsLoading] = useState(true);
   const [disciplina, setDisciplina] = useState("");
   const [professor, setProfessor] = useState("");
   const [aluno, setAluno] = useState("");
@@ -34,7 +17,6 @@ export function useNotas(disciplinaId: number | undefined): UseNotasReturn {
 
   useEffect(() => {
     if (disciplinaId === undefined) {
-      setIsLoading(false);
       return;
     }
 
@@ -54,21 +36,22 @@ export function useNotas(disciplinaId: number | undefined): UseNotasReturn {
 
         const notaInfo = getNotaByAlunoDisciplina(user.id, disciplinaId);
         if (notaInfo) {
-          const totalNota = (notaInfo.parcial + notaInfo.bimestral) / 2;
+          const notaParcial = notaInfo.parcial ?? 0;
+          const notaBimestral = notaInfo.bimestral ?? 0;
+          const totalNota = (notaParcial + notaBimestral) / 2;
           const situacaoFinal = totalNota >= 7 ? "Aprovado" : "Recuperação";
           setNotas({
-            parcial: notaInfo.parcial,
-            bimestral: notaInfo.bimestral,
+            parcial: notaParcial,
+            bimestral: notaBimestral,
             total: totalNota,
             situacao: situacaoFinal,
           });
         }
       }
-      setIsLoading(false);
     };
 
     fetchNotasData();
   }, [user, disciplinaId]);
 
-  return { isLoading, disciplina, professor, aluno, notas, user };
+  return { disciplina, professor, aluno, notas, user };
 }

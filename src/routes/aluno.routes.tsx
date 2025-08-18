@@ -10,11 +10,11 @@ export type AlunoStackParamList = {
 
 const { Navigator, Screen } = createStackNavigator<AlunoStackParamList>();
 
-export function AlunoRoutes(){
-    return (
-        <Navigator screenOptions={{headerShown: false}}>
-            <Screen name="Turma" component={TurmaAluno}/>
-            <Screen name="Notas" component={NotasAluno}/>
-        </Navigator>
-    )
+export function AlunoRoutes() {
+  return (
+    <Navigator screenOptions={{ headerShown: false }}>
+      <Screen name="Turma" component={TurmaAluno} />
+      <Screen name="Notas" component={NotasAluno} />
+    </Navigator>
+  );
 }

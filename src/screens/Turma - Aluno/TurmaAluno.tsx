@@ -9,17 +9,10 @@ import { DisciplinasAluno } from "../../components/Aluno/DisciplinasAluno/Discip
 import { UserInfo } from "../../components/UserInfo/UserInfo";
 import { ButtonLogout } from "../../components/ButtonLogout/ButtonLogout";
 
-
-
 export function TurmaAluno() {
-  const {user} = useAuth();
-  const { logout } = useAuth();
+  const { user } = useAuth();
 
   const turma = user?.turmaId ? getTurmaByID(user.turmaId) : undefined;
-
-  const handleLogout = async () => {
-    await logout();
-  };
 
   return (
     <ScrollView
@@ -29,9 +22,9 @@ export function TurmaAluno() {
     >
       <Logo height={105} width={93} fontSize={20} />
       <UserInfo />
-      <TurmaInfoCard turma={turma}/>
+      <TurmaInfoCard turma={turma} />
       <DisciplinasAluno />
-      <ButtonLogout/>
+      <ButtonLogout />
     </ScrollView>
   );
 }

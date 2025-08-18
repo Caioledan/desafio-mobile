@@ -1,8 +1,8 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#E4E4E4",
+    backgroundColor: "#F3F0F0",
     borderRadius: 10,
     borderWidth: 0.2,
     flexWrap: "wrap",
@@ -18,5 +18,5 @@ export const styles = StyleSheet.create({
     alignSelf: "center",
     fontWeight: "semibold",
     fontSize: 16,
-  }
+  },
 });

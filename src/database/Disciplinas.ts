@@ -1,7 +1,7 @@
 import { Disciplina } from "../interfaces/escola.interface";
 
 export const mockDisciplinas: Disciplina[] = [
-{ id: 1, nome: "Matemática", professorId: 9 },
+  { id: 1, nome: "Matemática", professorId: 9 },
   { id: 2, nome: "Português", professorId: 3 },
   { id: 3, nome: "Física", professorId: 4 },
   { id: 4, nome: "Química", professorId: 5 },
@@ -47,5 +47,4 @@ export const mockDisciplinas: Disciplina[] = [
   { id: 38, nome: "Biologia", professorId: 12 },
   { id: 39, nome: "Inglês", professorId: 10 },
   { id: 40, nome: "Espanhol", professorId: 11 },
-
 ];

@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
@@ -21,7 +21,7 @@ export const styles = StyleSheet.create({
     fontSize: 24,
   },
   image: {
-    height:24,
+    height: 24,
     width: 24,
     alignSelf: "center",
     marginTop: 14,

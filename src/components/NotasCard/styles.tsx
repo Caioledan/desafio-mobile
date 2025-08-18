@@ -1,10 +1,10 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-container: {
+  container: {
     display: "flex",
     flexDirection: "row",
-    backgroundColor: "#E4E4E4",
+    backgroundColor: "#F3F0F0",
     width: "90%",
     height: "45%",
     borderRadius: 12,
@@ -13,7 +13,7 @@ container: {
   titleView: {
     gap: 20,
     padding: 30,
-    justifyContent: "space-around"
+    justifyContent: "space-around",
   },
   titleText: {
     fontSize: 20,
@@ -23,20 +23,19 @@ container: {
   notasContainer: {
     padding: 30,
     gap: 20,
-    justifyContent: "space-around"
+    justifyContent: "space-around",
   },
   itemContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     height: 40,
   },
   input: {
     fontSize: 16,
     borderWidth: 1,
-    borderColor: '#999',
+    borderColor: "#999",
     width: 50,
     paddingVertical: 0,
-
   },
   aprovado: {
     backgroundColor: "#08CB00",
@@ -68,5 +67,5 @@ container: {
   icon: {
     display: "flex",
     marginTop: 6,
-  }
+  },
 });

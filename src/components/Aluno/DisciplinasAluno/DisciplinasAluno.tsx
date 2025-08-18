@@ -6,7 +6,6 @@ import { AlunoStackParamList } from "../../../routes/aluno.routes";
 import { useDisciplinas } from "../../../hooks/useDisciplinas";
 import { DisciplinaButton } from "../../DisciplinaButton/DisciplinaButton";
 
-
 const disciplinaImages: { [key: string]: ImageSourcePropType } = {
   Matemática: require("../../../assets/DisciplinaButtons/Matemática.png"),
   Português: require("../../../assets/DisciplinaButtons/Português.png"),

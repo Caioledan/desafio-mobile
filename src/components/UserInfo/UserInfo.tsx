@@ -11,12 +11,12 @@ export function UserInfo() {
     return null;
   }
 
-  let mensagemDeEntrada = 'Bem vindo(a),';
+  let mensagemDeEntrada = "Bem vindo(a),";
 
   if (user.funcionalidade === "Professor") {
-    mensagemDeEntrada = 'Bem Vindo(a), professor(a)';
+    mensagemDeEntrada = "Bem Vindo(a), professor(a)";
   } else if (user.funcionalidade === "Diretor") {
-    mensagemDeEntrada = 'Bem Vindo(a), diretor(a)';
+    mensagemDeEntrada = "Bem Vindo(a), diretor(a)";
   }
 
   return (

@@ -6,6 +6,7 @@ import { useProfessorTurmas } from "../../../hooks/useProfessorTurmas";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { ProfessorStackParamList } from "../../../routes/professor.routes";
 import { TurmasButton } from "../TurmasButton/TurmasButton";
+import { useAuth } from "../../../hooks/useAuth";
 
 type ProfessorNavigationProp = StackNavigationProp<
   ProfessorStackParamList,
@@ -14,7 +15,8 @@ type ProfessorNavigationProp = StackNavigationProp<
 
 export function TurmasDoProfessor() {
   const navigation = useNavigation<ProfessorNavigationProp>();
-  const { turmas } = useProfessorTurmas();
+  const { user } = useAuth();
+  const { turmas } = useProfessorTurmas(user?.id);
 
   const handleTurmaButton = (turmaId: number) => {
     navigation.navigate("TurmaDetalhesProfessor", { turmaId: turmaId });

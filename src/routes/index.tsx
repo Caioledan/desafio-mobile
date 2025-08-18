@@ -16,8 +16,8 @@ export function AppRoutesController() {
   if (user?.funcionalidade === "Aluno") {
     return <AlunoRoutes />;
   }
-  if (user?.funcionalidade === "Diretor"){
-    return <DiretorRoutes/>
+  if (user?.funcionalidade === "Diretor") {
+    return <DiretorRoutes />;
   }
 }
 

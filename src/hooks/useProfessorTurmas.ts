@@ -1,20 +1,20 @@
-import { useContext, useState, useEffect } from 'react';
-import { AuthContext } from '../contexts/AuthContext';
-import { getTurmasByProfessorId } from '../database';
-import { Turma } from '../interfaces/escola.interface';
+import { useContext, useState, useEffect } from "react";
+import { AuthContext } from "../contexts/AuthContext";
+import { getTurmasByProfessorId } from "../database";
+import { Turma } from "../interfaces/escola.interface";
 
-export function useProfessorTurmas() {
-  const { user } = useContext(AuthContext);
+export function useProfessorTurmas(professorId?: number | null) {
   const [turmas, setTurmas] = useState<Turma[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (user && user.funcionalidade === 'Professor') {
-      const professorTurmas = getTurmasByProfessorId(user.id);
-      setTurmas(professorTurmas);
+    if (!professorId) {
+      setTurmas([]);
+      return;
     }
-    setIsLoading(false);
-  }, [user]);
 
-  return { turmas, isLoading };
+    const professorTurmas = getTurmasByProfessorId(professorId);
+    setTurmas(professorTurmas);
+  }, [professorId]);
+
+  return { turmas };
 }

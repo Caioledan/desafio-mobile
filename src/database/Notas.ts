@@ -338,7 +338,7 @@ export const mockNotas: Nota[] = [
   { alunoId: 46, disciplinaId: 12, parcial: 9.0 },
   { alunoId: 46, disciplinaId: 13, parcial: 8.5 },
   { alunoId: 46, disciplinaId: 14, parcial: 8.8 },
-  { alunoId: 46, disciplinaId: 15,  parcial: 9.5 },
+  { alunoId: 46, disciplinaId: 15, parcial: 9.5 },
   { alunoId: 46, disciplinaId: 16, parcial: 9.1 },
   { alunoId: 46, disciplinaId: 17, parcial: 8.9 },
   { alunoId: 46, disciplinaId: 18, parcial: 8.7 },

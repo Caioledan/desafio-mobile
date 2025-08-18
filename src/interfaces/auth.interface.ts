@@ -1,5 +1,4 @@
-
-export type funcionalidade = 'Aluno' | 'Professor' | 'Diretor';
+export type funcionalidade = "Aluno" | "Professor" | "Diretor";
 
 export interface AuthContextData {
   user: User | null;

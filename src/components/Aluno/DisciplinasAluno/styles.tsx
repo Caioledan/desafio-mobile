@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
     width: "100%",
     alignItems: "center",
   },
-  grid:{
+  grid: {
     width: "100%",
     flexDirection: "row",
     flexWrap: "wrap",
@@ -16,5 +16,5 @@ export const styles = StyleSheet.create({
     width: "40%",
     marginVertical: 10,
     marginHorizontal: 15,
-  }
+  },
 });
