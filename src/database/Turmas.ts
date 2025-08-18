@@ -19,7 +19,7 @@ export const mockTurmas: Turma[] = [
   },
   {
     id: 3,
-    nome: "Turma C",
+    nome: "Turma A",
     serie: "8º Ano",
     professorId: 4,
     alunosIds: Array.from({ length: 30 }, (_, i) => 73 + i),
@@ -27,7 +27,7 @@ export const mockTurmas: Turma[] = [
   },
   {
     id: 4,
-    nome: "Turma D",
+    nome: "Turma B",
     serie: "8º Ano",
     professorId: 5,
     alunosIds: Array.from({ length: 30 }, (_, i) => 103 + i),

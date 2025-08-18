@@ -1,12 +1,11 @@
 import React from "react";
-import { Button } from "react-native";
-
 import { styles } from "./styles";
 import { Logo } from "../../components/Logo/Logo";
 import { UserInfo } from "../../components/UserInfo/UserInfo";
 import { useAuth } from "../../hooks/useAuth";
 import { TurmasDoProfessor } from "../../components/Professor/TurmasDoProfessor/TurmasDoProfessor";
 import { ScrollView } from "react-native-gesture-handler";
+import { ButtonLogout } from "../../components/ButtonLogout/ButtonLogout";
 
 export function TurmasProfessor() {
   const { logout } = useAuth();
@@ -24,7 +23,7 @@ export function TurmasProfessor() {
       <Logo height={105} width={93} fontSize={20} />
       <UserInfo />
       <TurmasDoProfessor />
-      <Button title="LOGOUT" onPress={handleLogout} />
+      <ButtonLogout />
     </ScrollView>
   );
 }

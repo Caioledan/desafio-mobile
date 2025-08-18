@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, ScrollView } from "react-native";
+import { ScrollView } from "react-native";
 import { styles } from "./styles";
 import { Logo } from "../../components/Logo/Logo";
 import { useAuth } from "../../hooks/useAuth";
@@ -7,6 +7,7 @@ import { TurmaInfoCard } from "../../components/TurmaInfoCard/TurmaInfoCard";
 import { getTurmaByID } from "../../database";
 import { DisciplinasAluno } from "../../components/Aluno/DisciplinasAluno/DisciplinasAluno";
 import { UserInfo } from "../../components/UserInfo/UserInfo";
+import { ButtonLogout } from "../../components/ButtonLogout/ButtonLogout";
 
 
 
@@ -30,7 +31,7 @@ export function TurmaAluno() {
       <UserInfo />
       <TurmaInfoCard turma={turma}/>
       <DisciplinasAluno />
-      <Button title="LOGOUT" onPress={handleLogout} />
+      <ButtonLogout/>
     </ScrollView>
   );
 }

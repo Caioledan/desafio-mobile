@@ -12,6 +12,5 @@ export const styles = StyleSheet.create({
     paddingBottom: 80,
     alignItems: "center",
     paddingVertical: 50,
-  }
-
+  },
 });
