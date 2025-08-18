@@ -3,6 +3,7 @@ import { ImageSourcePropType, Text, View } from "react-native";
 import { styles } from "./styles";
 import { DisciplinaButton } from "../../DisciplinaButton/DisciplinaButton";
 import { DisciplinasProfessorProps } from "../../../interfaces/components.interface";
+import { useRoute } from "@react-navigation/native";
 
 const disciplinaImages: { [key: string]: ImageSourcePropType } = {
   Matemática: require("../../../assets/DisciplinaButtons/Matemática.png"),
@@ -21,6 +22,7 @@ export function DisciplinasProfessor({
   disciplinas,
   onPress,
 }: DisciplinasProfessorProps) {
+
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Suas Disciplinas na Turma</Text>

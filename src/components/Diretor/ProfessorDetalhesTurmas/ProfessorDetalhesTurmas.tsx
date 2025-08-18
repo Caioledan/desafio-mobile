@@ -22,7 +22,7 @@ export function ProfessorDetalhesTurmas({
   const { turmas } = useProfessorTurmas(professorId);
 
   const handleTurmaButton = (turmaId: number) => {
-    navigation.navigate("TurmaDetalhesDiretor", { turmaId: turmaId });
+    navigation.navigate("TurmaDetalhesDiretor", { turmaId: turmaId,});
   };
 
   return (
