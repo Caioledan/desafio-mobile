@@ -30,7 +30,7 @@ export function DisciplinasProfessor({
       <Text style={styles.text}>Suas Disciplinas na Turma</Text>
       <View style={styles.grid}>
         {disciplinas.map((disciplina) => (
-          <View key={disciplina.id}>
+          <View key={disciplina.id} style={styles.wrapper}>
             <DisciplinaButton img={disciplinaImages[disciplina.nome]} disciplina={disciplina.nome} onPress={() => onPress(disciplina.id)}/>
           </View>
         ))}
