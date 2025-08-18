@@ -40,7 +40,12 @@ export function TurmaDetalhesDiretor() {
       .filter((d): d is Disciplina => d !== undefined);
   }, [turma]);
 
-  const handleDisciplinaButton = (disciplinaId: number) => {};
+  const handleDisciplinaButton = (disciplinaId: number) => {
+    navigation.navigate("DisciplinaDetalhesDiretor", {
+      turmaId: turmaId,
+      disciplinaId: disciplinaId,
+    });
+  };
 
   return (
     <ScrollView
