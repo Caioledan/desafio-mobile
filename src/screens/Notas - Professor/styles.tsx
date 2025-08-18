@@ -5,6 +5,7 @@ export const styles = StyleSheet.create({
     display: "flex",
     alignItems: "center",
     paddingVertical: 50,
+    backgroundColor: "white",
   },
   button: {
     borderRadius: 12,
