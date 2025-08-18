@@ -9,14 +9,16 @@ import { Logo } from "../../components/Logo/Logo";
 import { DisciplinaInfoCard } from "../../components/DisciplinaInfoCard/DisciplinaInfoCard";
 import { User } from "../../interfaces/auth.interface";
 import { DisciplinaAlunos } from "../../components/Professor/DisciplinaAlunos/DisciplinaAlunos";
+import { StackNavigationProp } from "@react-navigation/stack";
 
 type DisciplinaDetalhesDiretorProp = RouteProp<
   DiretorStackParamList,
   "DisciplinaDetalhesDiretor"
 >;
+type NavigationProp = StackNavigationProp<DiretorStackParamList, "DisciplinaDetalhesDiretor">;
 
 export function DisciplinaDetalhesDiretor() {
-  const navigation = useNavigation();
+  const navigation = useNavigation<NavigationProp>();
   const route = useRoute<DisciplinaDetalhesDiretorProp>();
   const { turmaId, disciplinaId } = route.params;
   const [turma, setTurma] = useState<Turma>();
@@ -47,7 +49,12 @@ export function DisciplinaDetalhesDiretor() {
       .filter((aluno): aluno is User => aluno !== undefined);
   }, [turma]);
 
-  const handleAlunoButton = (alunoId: number) => {};
+  const handleAlunoButton = (alunoId: number) => {
+    navigation.navigate("AlunoDetalhesDiretor", {
+      disciplinaId: disciplinaId,
+      alunoId: alunoId,
+    })
+  };
 
   return (
     <ScrollView
