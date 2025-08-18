@@ -10,6 +10,9 @@ import { DisciplinasProfessor } from "../../components/Professor/DisciplinasProf
 import { useAuth } from "../../hooks/useAuth";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { ScrollView } from "react-native-gesture-handler";
+import { ButtonVoltar } from "../../components/ButtonVoltar/ButtonVoltar";
+import { View } from "react-native";
+import { useDisciplinasDoProfessorNaTurma } from "../../hooks/useDisciplinasDoProfessorNaTurma";
 
 type TurmaDetalhesProfessorRouteProp = RouteProp<
   ProfessorStackParamList,
@@ -25,25 +28,7 @@ export function TurmaDetalhesProfessor() {
   const navigation = useNavigation<NavigationProp>();
   const route = useRoute<TurmaDetalhesProfessorRouteProp>();
   const { turmaId } = route.params;
-  const [turma, setTurma] = useState<Turma | undefined>(undefined);
-  const { user } = useAuth();
-
-  useEffect(() => {
-    const dadosDaTurma = getTurmaByID(turmaId);
-
-    setTurma(dadosDaTurma);
-  }, [turmaId]);
-
-  const disciplinasDoProfessor = useMemo(() => {
-    if (!turma || !user) {
-      return [];
-    }
-
-    return turma.disciplinasIds
-      .map((id) => getDisciplinaById(id))
-      .filter((d): d is Disciplina => d !== undefined)
-      .filter((disciplina) => disciplina.professorId === user.id);
-  }, [turma, user]);
+  const {turma, disciplinasDoProfessor} = useDisciplinasDoProfessorNaTurma(turmaId);
 
   const handleDisciplinaButton = (disciplinaId: number) => {
     navigation.navigate("DisciplinaProfessor", {
@@ -58,7 +43,10 @@ export function TurmaDetalhesProfessor() {
       style={styles.container}
       contentContainerStyle={styles.contentContainer}
     >
-      <Logo height={105} width={93} fontSize={20} />
+      <View style={styles.header}>
+        <ButtonVoltar />
+        <Logo height={105} width={93} fontSize={20} />
+      </View>
       <TurmaInfoCard turma={turma} />
       <DisciplinasProfessor
         disciplinas={disciplinasDoProfessor}
