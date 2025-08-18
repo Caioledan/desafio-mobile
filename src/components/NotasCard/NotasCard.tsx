@@ -71,7 +71,7 @@ export function NotasCard({
         )}
 
         <Text style={styles.titleText}>{totalParaExibir}</Text>
-        <Text style={[styles.titleText, estiloSituacao]}>{situacao}</Text>
+        <Text style={[styles.titleText, estiloSituacao, {fontSize: 16}]}>{situacao}</Text>
       </View>
     </View>
   );

@@ -21,7 +21,6 @@ type AlunoDetalhesDiretorRouteProp = RouteProp<
 
 export function AlunoDetalhesDiretor() {
   const route = useRoute<AlunoDetalhesDiretorRouteProp>();
-  const navigation = useNavigation();
   const { disciplinaId, alunoId } = route.params;
   const [disciplina, setDisciplina] = useState<Disciplina>();
   const [professor, setProfessor] = useState<User>();

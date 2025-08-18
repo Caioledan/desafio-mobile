@@ -11,17 +11,18 @@ export function UserInfo() {
     return null;
   }
 
-  let mensagemDeEntrada = `Bem vindo(a), \n ${user.nome}`;
+  let mensagemDeEntrada = 'Bem vindo(a),';
 
   if (user.funcionalidade === "Professor") {
-    mensagemDeEntrada = `Bem Vindo(a), professor(a) ${user.nome}`;
+    mensagemDeEntrada = 'Bem Vindo(a), professor(a)';
   } else if (user.funcionalidade === "Diretor") {
-    mensagemDeEntrada = `Bem Vindo(a), diretor(a) ${user.nome}`;
+    mensagemDeEntrada = 'Bem Vindo(a), diretor(a)';
   }
 
   return (
     <View style={styles.container}>
       <Text style={styles.text}>{mensagemDeEntrada}</Text>
+      <Text style={styles.text}>{user.nome}</Text>
     </View>
   );
 }
