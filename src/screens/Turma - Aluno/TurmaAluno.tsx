@@ -6,6 +6,7 @@ import { useAuth } from "../../hooks/useAuth";
 import { TurmaInfoCard } from "../../components/TurmaInfoCard/TurmaInfoCard";
 import { getTurmaByID } from "../../database";
 import { DisciplinasAluno } from "../../components/Aluno/DisciplinasAluno/DisciplinasAluno";
+import { UserInfo } from "../../components/UserInfo/UserInfo";
 
 
 
@@ -26,6 +27,7 @@ export function TurmaAluno() {
       showsVerticalScrollIndicator={false}
     >
       <Logo height={105} width={93} fontSize={20} />
+      <UserInfo />
       <TurmaInfoCard turma={turma}/>
       <DisciplinasAluno />
       <Button title="LOGOUT" onPress={handleLogout} />

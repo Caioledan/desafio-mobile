@@ -37,6 +37,14 @@ const professorDisciplinaIds = mockDisciplinas.filter(disciplina => disciplina.p
   );
 }
 
+export function getTodosOsProfessores(): User[] {
+  return mockUsers.filter(user => user.funcionalidade === 'Professor');
+}
+
+export function getTodasAsTurmas(): Turma[] {
+  return mockTurmas;
+}
+
 export function salvarNota( alunoId: number, disciplinaId: number, notaParcial: number, notaBimestral: number){
   const notaExistente = mockNotas.find((nota) => nota.alunoId === alunoId && nota.disciplinaId === disciplinaId);
 

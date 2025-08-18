@@ -8,10 +8,13 @@ interface AlunoButtonProps {
 }
 
 export function AlunoButton({alunoNome, onPress}: AlunoButtonProps) {
+  const nomesAluno = (alunoNome || "").split(" ");
+  const nomeAlunoAbreviado = nomesAluno.slice(0,2).join(" ");
+
   return (
   <TouchableOpacity onPress={onPress} style={styles.container}>
     <View style={styles.button}>
-      <Text style={styles.text}>{alunoNome}</Text>
+      <Text style={styles.text}>{nomeAlunoAbreviado}</Text>
     </View>
   </TouchableOpacity>
   );
